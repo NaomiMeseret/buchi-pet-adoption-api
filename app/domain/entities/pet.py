@@ -5,7 +5,7 @@ from app.domain.enums.pet_size import PetSize
 from app.domain.enums.pet_source import PetSource
 
 
-@dataclass(slots=True)
+@dataclass
 class Pet:
     id: str
     name: str
