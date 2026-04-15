@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 
-@dataclass(slots=True)
+@dataclass
 class Customer:
     id: str
     full_name: str
