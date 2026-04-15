@@ -4,7 +4,7 @@ from datetime import datetime
 from app.domain.enums.adoption_request_status import AdoptionRequestStatus
 
 
-@dataclass(slots=True)
+@dataclass
 class AdoptionRequest:
     id: str
     customer_id: str
