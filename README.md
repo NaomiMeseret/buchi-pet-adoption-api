@@ -168,6 +168,18 @@ The project includes a few practical production-focused touches:
 - Unit and integration test coverage
 - Local file storage served through URL paths
 
+## Additional Value
+
+Beyond the core requirements, the project also includes:
+
+- Centralized API error handling
+- Bonus reporting endpoint
+- External dog search integration with local-first result merging
+- External pet snapshot support during adoption
+- Docker-based PostgreSQL and application setup
+- Gunicorn-based production serving
+- Postman collection and environment files for demo and testing
+
 
 ## Current Limitations
 
