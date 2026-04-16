@@ -1,4 +1,4 @@
-# Buchi Pet Adoption API
+# Buchi Pet Adoption API 🦮
 
 Buchi Pet Adoption API is a production-oriented backend for a pet adoption platform built with FastAPI and PostgreSQL. It allows users to create pets, search across local and external dog data, add customers, create adoption requests, fetch adoption history within a date range, and generate adoption reports.
 
@@ -81,7 +81,7 @@ Once the containers are up:
 Notes:
 
 - PostgreSQL is created automatically by Docker
-- Table creation runs automatically during container startup
+- Database migrations run automatically during container startup
 - A local `.env` file is optional because `docker-compose.yml` includes working defaults
 - If you want real external dog results, set `THEDOGAPI_API_KEY` in your shell or in a local `.env` file
 
@@ -98,6 +98,7 @@ pip install -r requirements-dev.txt
 Run the API locally:
 
 ```bash
+alembic upgrade head
 uvicorn app.main:app --reload
 ```
 
@@ -162,6 +163,7 @@ The project includes a few practical production-focused touches:
 
 - Gunicorn with Uvicorn workers
 - Dockerized application and database setup
+- Alembic-based database migrations
 - Environment-based configuration
 - Centralized API error handling
 - PostgreSQL-backed persistence
@@ -178,14 +180,12 @@ Beyond the core requirements, the project also includes:
 - External pet snapshot support during adoption
 - Docker-based PostgreSQL and application setup
 - Gunicorn-based production serving
-- Postman collection and environment files for demo and testing
 
 
 ## Current Limitations
 
 - TheDogAPI only provides dog data, so external search is intentionally limited to dogs
 - External dog fields such as age, gender, and `good_with_children` may be missing
-- Migrations are not set up yet; the project currently creates tables automatically at startup
 
 ## Author
 
