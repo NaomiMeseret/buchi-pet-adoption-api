@@ -7,7 +7,12 @@ from app.domain.enums import (
     PetSource,
     PetType,
 )
-from app.domain.interfaces import AdoptionRepository, CustomerRepository, PetRepository
+from app.domain.interfaces import (
+    AdoptionRepository,
+    CustomerRepository,
+    ExternalDogProvider,
+    PetRepository,
+)
 from app.domain.value_objects import DateRange, PetSearchFilters
 
 __all__ = [
@@ -25,4 +30,5 @@ __all__ = [
     "PetRepository",
     "CustomerRepository",
     "AdoptionRepository",
+    "ExternalDogProvider",
 ]
