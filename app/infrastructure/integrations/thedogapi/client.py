@@ -50,5 +50,18 @@ class TheDogApiClient:
 
         return [item for item in data if isinstance(item, dict)]
 
+    def get_image_by_id(self, image_id: str) -> dict | None:
+        try:
+            response = self.client.get(f"/images/{image_id}")
+            response.raise_for_status()
+        except httpx.HTTPError:
+            return None
+
+        data = response.json()
+        if not isinstance(data, dict):
+            return None
+
+        return data
+
     def close(self) -> None:
         self.client.close()
