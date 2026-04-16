@@ -178,7 +178,6 @@ Beyond the core requirements, the project also includes:
 - External pet snapshot support during adoption
 - Docker-based PostgreSQL and application setup
 - Gunicorn-based production serving
-- Postman collection and environment files for demo and testing
 
 
 ## Current Limitations
