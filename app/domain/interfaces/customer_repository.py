@@ -5,7 +5,7 @@ from app.domain.entities.customer import Customer
 
 class CustomerRepository(ABC):
     @abstractmethod
-    def create(self, customer: Customer) -> Customer:
+    def get_by_phone(self, phone: str) -> Customer | None:
         pass
 
     @abstractmethod
@@ -13,9 +13,5 @@ class CustomerRepository(ABC):
         pass
 
     @abstractmethod
-    def get_by_phone(self, phone_number: str) -> Customer | None:
-        pass
-
-    @abstractmethod
-    def phone_exists(self, phone_number: str) -> bool:
+    def create(self, customer: Customer) -> Customer:
         pass
