@@ -8,8 +8,13 @@ services:
       -k uvicorn.workers.UvicornWorker
       --bind 0.0.0.0:8000
       --workers ${GUNICORN_WORKERS:-2}
-    env_file:
-      - .env
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://postgres:postgres@db:5432/buchi}
+      THEDOGAPI_API_KEY: ${THEDOGAPI_API_KEY:-}
+      MEDIA_ROOT: ${MEDIA_ROOT:-storage/pet_images}
+      MEDIA_URL_BASE: ${MEDIA_URL_BASE:-/media/pet_images}
+      GUNICORN_WORKERS: ${GUNICORN_WORKERS:-2}
     ports:
       - "8000:8000"
     volumes:
@@ -26,7 +31,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:

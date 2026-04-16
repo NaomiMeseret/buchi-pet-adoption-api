@@ -30,6 +30,9 @@ def get_settings() -> Settings:
     if not media_url_base:
         raise BadRequestError("MEDIA_URL_BASE is required")
 
+    if database_url.startswith("postgresql://"):
+        database_url = database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+
     return Settings(
         app_env=app_env,
         database_url=database_url,
