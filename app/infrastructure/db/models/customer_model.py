@@ -1,7 +1,5 @@
-from __future__ import annotations
-
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 
 from app.infrastructure.db.base import Base
 
@@ -9,8 +7,8 @@ from app.infrastructure.db.base import Base
 class CustomerModel(Base):
     __tablename__ = "customers"
 
-    id: Mapped[str] = mapped_column(String(64), primary_key=True)
-    name: Mapped[str] = mapped_column(String(255), nullable=False)
-    phone: Mapped[str] = mapped_column(String(32), nullable=False, unique=True, index=True)
+    id = Column(String(64), primary_key=True)
+    name = Column(String(255), nullable=False)
+    phone = Column(String(32), nullable=False, unique=True, index=True)
 
-    adoption_requests: Mapped[list["AdoptionRequestModel"]] = relationship(back_populates="customer")
+    adoption_requests = relationship("AdoptionRequestModel", back_populates="customer")
