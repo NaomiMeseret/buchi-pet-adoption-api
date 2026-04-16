@@ -9,6 +9,5 @@ class AdoptionRequest:
     id: str
     customer_id: str
     pet_id: str
+    created_at: datetime
     status: AdoptionRequestStatus = AdoptionRequestStatus.PENDING
-    requested_at: datetime | None = None
-    notes: str | None = None
