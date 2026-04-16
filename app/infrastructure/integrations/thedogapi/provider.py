@@ -39,6 +39,17 @@ class TheDogApiExternalDogProvider(ExternalDogProvider):
 
         return pets
 
+    def get_by_id(self, pet_id: str) -> Pet | None:
+        external_id = self._extract_external_id(pet_id)
+        if external_id is None:
+            return None
+
+        image_payload = self.client.get_image_by_id(external_id)
+        if image_payload is None:
+            return None
+
+        return self._to_domain_pet(image_payload)
+
     def _to_domain_pet(self, image_payload: dict) -> Pet | None:
         external_id = image_payload.get("id")
         if external_id is None:
@@ -120,3 +131,12 @@ class TheDogApiExternalDogProvider(ExternalDogProvider):
     def _extract_numbers(value: str) -> list[float]:
         matches = re.findall(r"\d+(?:\.\d+)?", value)
         return [float(match) for match in matches]
+
+    @staticmethod
+    def _extract_external_id(pet_id: str) -> str | None:
+        prefix = "external_dog_"
+        if not pet_id.startswith(prefix):
+            return None
+
+        external_id = pet_id.removeprefix(prefix)
+        return external_id or None

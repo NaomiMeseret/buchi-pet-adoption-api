@@ -1,3 +1,4 @@
+from app.core.exceptions import BadRequestError
 from app.domain.entities.pet import Pet
 from app.domain.interfaces.external_dog_provider import ExternalDogProvider
 from app.domain.interfaces.pet_repository import PetRepository
@@ -36,7 +37,7 @@ class PetSearchService:
     @staticmethod
     def _validate_limit(limit: int) -> None:
         if limit <= 0:
-            raise ValueError("limit must be greater than 0")
+            raise BadRequestError("limit must be greater than 0")
 
     @staticmethod
     def _merge_results(local_pets: list[Pet], external_pets: list[Pet]) -> list[Pet]:

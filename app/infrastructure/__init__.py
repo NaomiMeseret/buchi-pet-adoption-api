@@ -5,6 +5,7 @@ from app.infrastructure.repositories import (
     CustomerRepositorySQLAlchemy,
     PetRepositorySQLAlchemy,
 )
+from app.infrastructure.storage import LocalFileStorage
 
 __all__ = [
     "Base",
@@ -16,4 +17,5 @@ __all__ = [
     "AdoptionRepositorySQLAlchemy",
     "TheDogApiClient",
     "TheDogApiExternalDogProvider",
+    "LocalFileStorage",
 ]

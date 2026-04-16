@@ -8,3 +8,7 @@ class ExternalDogProvider(ABC):
     @abstractmethod
     def search(self, filters: PetSearchFilters, limit: int) -> list[Pet]:
         pass
+
+    @abstractmethod
+    def get_by_id(self, pet_id: str) -> Pet | None:
+        pass

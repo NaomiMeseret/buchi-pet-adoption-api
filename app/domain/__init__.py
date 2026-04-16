@@ -11,6 +11,7 @@ from app.domain.interfaces import (
     AdoptionRepository,
     CustomerRepository,
     ExternalDogProvider,
+    FileStorage,
     PetRepository,
 )
 from app.domain.value_objects import DateRange, PetSearchFilters
@@ -31,4 +32,5 @@ __all__ = [
     "CustomerRepository",
     "AdoptionRepository",
     "ExternalDogProvider",
+    "FileStorage",
 ]
