@@ -14,5 +14,5 @@ class PetRepository(ABC):
         pass
 
     @abstractmethod
-    def exists(self, pet_id: str) -> bool:
+    def create(self, pet: Pet) -> Pet:
         pass
